@@ -141,7 +141,7 @@ function searchCity() {
 
 // get UV data
 function getUV(lat, lon) {
-    let api2 = `http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${key}`;
+    let api2 = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${key}`;
 
     fetch(api2)
         .then(function (response) {
