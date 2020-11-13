@@ -136,12 +136,13 @@ function searchCity() {
             let city = document.getElementById("city");
             localStorage.setItem("cityName", $("#city").val());
             $("#container-history").append(localStorage.getItem("city"));
+
         });
 }
 
 // get UV data
 function getUV(lat, lon) {
-    let api2 = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${key}`;
+    let api2 = `http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${key}`;
 
     fetch(api2)
         .then(function (response) {
@@ -151,8 +152,28 @@ function getUV(lat, lon) {
         })
         .then(function (data) {
             $("#uv-value").html(data.value + " UV INDEX");
-        });
+
+
+
+
+
+            // Change the colour for UV 
+            if (data.value < 2.5) {
+                $("#uv-value").addClass("low");
+            } else if (data.value < 5.5 > 2.5) {
+                $("#uv-value").addClass("moderate");
+            } else if (data.value < 7.5) {
+                $("#uv-value").addClass("high");
+            } else if (data.value < 10.5) {
+                $("#uv-value").addClass("very-high");
+            } else {
+                $("#uv-value").addClass("extreme");
+            }
+        })
 }
+
+
+
 
 // implemented the 5 day forecast information 
 function forecast() {
@@ -264,10 +285,15 @@ function recents() {
 function make(city) {
     $("#city").val(city);
     $("#btn").click();
+
+    $("#current-uv").removeClass("low moderate high very-high extreme");
 }
 
 
 $(document).on('click', ".recent", function () {
+
+
     $("#city").val($(this).data('city'));
-    $("#btn").click();
+    $("#btn").click()
+
 });
