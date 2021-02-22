@@ -1,4 +1,4 @@
-# WeatherDashboard 
+# MyWeatherDashboard 
 Deployed link https://genius-pending.github.io/WeatherDashboard/ A colourful weather dashboard made using API integration, CSS, HTML,Javascript,Jquery,Moments.JS.
 I enjoyed making this app but it was also difficult as this was the first time I have worked with api's, I learnt a valuable lesson in reading the API documentation.
 I implemented template literals which is something new I discovered and will start using more of in my code going forward.
